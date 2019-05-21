@@ -1,11 +1,6 @@
-{% extends 'post/base_templ.html'%}
-
-{% block tilte %}
-{{ post.title }} - {{ block.super }}
-{%endblock%}
-
 {% block content %}
   <h1 class='mt-5'>{{ post.title }}</h1>
   <p>{{ post.ingredients }}</p>
   <p>{{ post.cooking }}</p>
+  <p>{{ post.time_cooking }}</p>
   {% endblock %}

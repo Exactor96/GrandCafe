@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post, Tag
+from .models import Post, Tag, Human
 from django.views.generic import TemplateView
 from django.http import HttpResponse
 from django.core.paginator import Paginator
@@ -8,8 +8,17 @@ from django.core.paginator import Paginator
 
 
 
-def h(request):
-	return render(request,'post/blank.html')
+class MainView(TemplateView):
+	template_name = 'post/blank.html'
+	def get(self, request):
+		if request.user.is_authenticated:
+			humans = Human.objects.all()
+			ctx = {}
+			ctx['humans'] = humans
+			return render(request, self.template_name, ctx)
+		else:
+			return render(request, self.template_name, {})
+
 
 def paginator(request):
 	posts = Post.objects.all()

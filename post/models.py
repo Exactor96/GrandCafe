@@ -24,3 +24,13 @@ class Tag(models.Model):
 
     def __str__(self):
         return '{}'.format(self.title)
+
+
+class Human(models.Model):
+    name = models.CharField(max_length=50, verbose_name="Имя")
+    surname = models.CharField(max_length=50, verbose_name="Фамилия")
+    date_birth = models.DateField(auto_now_add=False, auto_now=False, verbose_name='дата рождения')
+    email = models.EmailField(max_length=50, verbose_name='email')
+
+    def __str__(self):
+        return self.name

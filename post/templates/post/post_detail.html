@@ -1,6 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Title name{% endblock %}
+{% block styles %}
+h1{
+  color:red;
+}
+{% endblock %}
+
+
 {% block content %}
-  <h1 class='mt-5'>{{ post.title }}</h1>
+  <h1>{{ post.title }}</h1>
   <p>{{ post.ingredients }}</p>
   <p>{{ post.cooking }}</p>
   <p>{{ post.time_cooking }}</p>
-  {% endblock %}
+{% endblock %}

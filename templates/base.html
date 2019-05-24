@@ -2,7 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Title name</title>
+    <title>{% block title %}Title name{% endblock %}</title>
+    <style type="text/css">{% block styles %}beautiful styles{% endblock %}</style>
   </head>
   <body>
     <a href ="/" >Home</a>

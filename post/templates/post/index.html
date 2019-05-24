@@ -82,23 +82,69 @@ Blog Engine
 {% block content %}
 
 
-{% for post in page_object.object_list %}
-<div class="card mb-4" style="width: 18rem;" >
-  <div class="card-body">
-    <h5 class="card-title">{{ post.title }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{ post.date_pb }}</h6>
-     <p class="card-text">{{ post.ingredients | truncatewords:3}}</p>
-      <p class="card-text">{{ post.cooking | truncatewords:10}}</p>
-      <p class="card-text">{{ post.date_pb }}</p>
-    <a href="{% url 'post_detail_url' slug=post.slug %}" class="card-link">Card link</a>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
 
+      {% for post in page_object.object_list %}
+      <div class="card mb-4" style="width: 18rem;" >
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ post.date_pb }}</h6>
+           <p class="card-text">{{ post.ingredients | truncatewords:3}}</p>
+            <p class="card-text">{{ post.cooking | truncatewords:10}}</p>
+            <p class="card-text">{{ post.date_pb }}</p>
+          <a href="{% url 'post_detail_url' slug=post.slug %}" class="card-link">Card link</a>
+        </div>
+      </div>
+      {% endfor %}
+
+
+    </div>
+    <div class="col-sm">
+      {% for post in page_object.object_list %}
+      <div class="card mb-4" style="width: 18rem;" >
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ post.date_pb }}</h6>
+           <p class="card-text">{{ post.ingredients | truncatewords:3}}</p>
+            <p class="card-text">{{ post.cooking | truncatewords:10}}</p>
+            <p class="card-text">{{ post.date_pb }}</p>
+          <a href="{% url 'post_detail_url' slug=post.slug %}" class="card-link">Card link</a>
+        </div>
+      </div>
+      {% endfor %}
+
+
+    </div>
+
+    <div class="col-sm">
+
+      {% for post in page_object.object_list %}
+      <div class="card mb-4" style="width: 18rem;" >
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ post.date_pb }}</h6>
+           <p class="card-text">{{ post.ingredients | truncatewords:3}}</p>
+            <p class="card-text">{{ post.cooking | truncatewords:10}}</p>
+            <p class="card-text">{{ post.date_pb }}</p>
+          <a href="{% url 'post_detail_url' slug=post.slug %}" class="card-link">Card link</a>
+        </div>
+      </div>
+      {% endfor %}
+
+
+
+    </div>
   </div>
 </div>
 
 
-{% endfor %}
-{% if is_paginated %}
 
+
+
+
+{% if is_paginated %}
 <nav aria-label="...">
   <ul class="pagination">
     <li class="page-item {% if not prev_url %} disabled {% endif %}">

@@ -20,5 +20,10 @@ urlpatterns = [
 #site root
     path('admin/', admin.site.urls),
     path('post/', include('post.urls')),
-    path('',views.greet)
+    path('',views.greet),
+    path('login/',views.LoginFormView.as_view()),
+    path('register/',views.RegisterFormView.as_view()),
+    path('logout/',views.LogoutView.as_view()),
+    path('recepts/',views.paginator),
+
 ]

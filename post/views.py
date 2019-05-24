@@ -12,7 +12,8 @@ from django.core.paginator import Paginator
 # Create your views here.
 
 
-
+def greet(request):
+	return render(request,'post/greet.html')
 
 class MainView(TemplateView):
 	template_name = 'post/blank.html'

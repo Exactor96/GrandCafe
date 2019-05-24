@@ -34,3 +34,9 @@ class Human(models.Model):
 
     def __str__(self):
         return self.name
+
+class t_img(models.Model):
+    avatar = models.ImageField(verbose_name="avatar")
+
+    def __str__(self):
+        return self.name

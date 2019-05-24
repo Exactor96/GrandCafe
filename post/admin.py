@@ -5,3 +5,4 @@ from . import models
 admin.site.register(models.Post)
 admin.site.register(models.Tag)
 admin.site.register(models.Human)
+admin.site.register(models.t_img)

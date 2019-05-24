@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    {% block head %}
+    {% endblock %}
     <meta charset="utf-8">
     <title>{% block title %}Title name{% endblock %}</title>
     <style type="text/css">{% block styles %}beautiful styles{% endblock %}</style>
   </head>
   <body>
     <a href ="/" >Home</a>
-    <a href = "recepts/">Recipes</a>
-    <a href = "login/">Login</a>
-    <a href = "register/">Registraton</a>
+    <a href = "/recepts/">Recipes</a>
+    <a href = "/login/">Login</a>
+    <a href = "/register/">Registraton</a>
 
     {% block content %}
     {% endblock %}

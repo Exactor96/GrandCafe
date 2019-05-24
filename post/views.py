@@ -55,7 +55,7 @@ class LoginFormView(FormView):
 class LogoutView(View):
 	def get(self, request):
 		logout(request)
-		return HttpResponseRedirect("/post/")
+		return HttpResponseRedirect("/")
 
 
 
@@ -89,6 +89,7 @@ def paginator(request):
 def post_detail(request, slug):
 	post = Post.objects.get(slug__iexact=slug)
 	return render(request, 'post/post_detail.html',context={'post':post})
+
 
 def post_tags(request):
 	tags = Tag.objects.all()

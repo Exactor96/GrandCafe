@@ -11,8 +11,6 @@ margin: 0;
 padding: 0;
 }
 
-
-
 .ingredients{
   display: block;
   font-size: 16px;
@@ -22,7 +20,10 @@ padding: 0;
   border-bottom: 1px solid #e7e9e7;
   padding: 3px 0 5px;
 }
-.ingredients.
+
+.ingredients > p{
+  color:blue;
+}
 
 {% endblock %}
 
@@ -31,10 +32,11 @@ padding: 0;
   <h1 align="center">{{ post.title }}</h1>
 <p>Время готовки {{ post.time_cooking }}</p>
 <div class="ingredients">
-
-  {{ post.ingredients|linebreaks}}
-
+  {% for each in post.ingredients_as_list %}
+  <p>{{each}}</p>
+  {% endfor %}
 </div>
-  <p>{{ post.cooking }}</p>
-
+<div class="cooking">
+  <a>{{ post.cooking }}</a>
+</div>
 {% endblock %}

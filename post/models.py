@@ -12,6 +12,9 @@ class Post(models.Model):
     date_pub = models.DateTimeField(auto_now_add=True)
     time_cooking = models.TextField(blank=True, max_length=10)
 
+    def ingredients_as_list(self):
+        return self.ingredients.split('\n')
+
     def __str__(self):
         return '{}'.format(self.title)
 

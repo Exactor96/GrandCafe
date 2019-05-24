@@ -1,7 +1,8 @@
-<head>
-
+{% extends 'base.html' %}
+  {% block head %}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <style type="text/css">
+  {% endblock %}
+  {% block styles %}
     .grid-container{
     display: flex;
     flex-wrap: wrap;
@@ -11,15 +12,16 @@
     flex: 1 0 21%; /* explanation below */
 
   }
-  </style>
-</head>
+  {% endblock %}
 
-<body>
+
 {% block tilte %}
 Blog Engine
 {%endblock%}
 {% block content %}
-
+<br>
+<br>
+<br>
 <div class="grid-container">
   {% for post in page_object.object_list %}
   <div class="item">
@@ -36,31 +38,6 @@ Blog Engine
   </div>
   {% endfor %}
 </div>
-
-<!--
-<div class="container ">
-  <div class="row">
-    <div class="col-sm">
-
-      {% for post in page_object.object_list %}
-      <div class="card mb-4 bg-light text-dark border-success" style="width: 25rem;" >
-        <div class="card-body">
-          <h5 class="card-title text-danger">{{ post.title }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ post.date_pb }}</h6>
-           <p class="card-text text-dark">{{ post.ingredients | truncatewords:3}}</p>
-            <p class="card-text text-dark">{{ post.cooking | truncatewords:10}}</p>
-            <p class="card-text">{{ post.date_pb }}</p>
-          <a href="{% url 'post_detail_url' slug=post.slug %}" class="btn btn-info" role="button">Перейти</a>
-        </div>
-      </div>
-      {% endfor %}
-
-    </div>
-    </div>
-
-    </div>
--->
-
 
 
 {% if is_paginated %}
@@ -88,4 +65,3 @@ Blog Engine
 
   {% endif %}
 {% endblock %}
-<body>

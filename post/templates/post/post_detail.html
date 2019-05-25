@@ -1,41 +1,75 @@
 {% extends 'base.html' %}
 {% block title %}Title name{% endblock %}
+
+
+
 {% block styles %}
+
+.time{
+  margin-left: 85px;
+}
+
+
+table{
+  margin-left: 85px;
+}
+
 h1{
   color:red;
 }
 
-li{
-  list-style: none;
-margin: 0;
-padding: 0;
+.cooking{
+  font-family: 'Trattatello', fantasy;
+  
+  background: rgb(238, 188, 103);
+ border: 4px double black;
+ border-radius: 20px;
+ margin: 1%;
+ padding: 1%
 }
 
-.ingredients{
-  display: block;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #1d211f;
-  text-align: left;
-  border-bottom: 1px solid #e7e9e7;
-  padding: 3px 0 5px;
-}
 
-.ingredients > p{
-  color:blue;
+.lux {
+
+  margin-bottom: 45px;
+    width: 300px;
+    border: 1px inset #a52a2a;
+    border-collapse: collapse;
+    border-spacing: 0;
+	text-align:center;
+  border-radius: 2px;
+
+   }
+.lux th {
+    background: #a52a2a;
+    color: white;
+   }
+.lux td {
+    border-bottom: 1px inset black;
+   }
+.lux td, .lux th {
+    padding: 4px;
+}
+tr:nth-child(odd) {
+	background:#fff8dc;
 }
 
 {% endblock %}
 
 
 {% block content %}
-  <h1 align="center">{{ post.title }}</h1>
-<p>Время готовки {{ post.time_cooking }}</p>
+
+
 <div class="ingredients">
+  <p class="time">Время готовки: {{ post.time_cooking }}</p>
+  <table class="lux">
+    <th>Ингредиенты</th>
   {% for each in post.ingredients_as_list %}
-  <p>{{each}}</p>
+<tr><td>{{each}}</td></tr>
   {% endfor %}
+  </table>
 </div>
+
 <div class="cooking">
   <a>{{ post.cooking }}</a>
 </div>

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Title name{% endblock %}
+{% block title %}{{post.title}}{% endblock %}
 
 
 
@@ -20,7 +20,7 @@ h1{
 
 .cooking{
   font-family: 'Trattatello', fantasy;
-  
+
   background: rgb(238, 188, 103);
  border: 4px double black;
  border-radius: 20px;
@@ -55,7 +55,6 @@ tr:nth-child(odd) {
 }
 
 {% endblock %}
-
 
 {% block content %}
 

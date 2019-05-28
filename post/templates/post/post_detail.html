@@ -1,17 +1,15 @@
 {% extends 'base.html' %}
 {% block title %}{{post.title}}{% endblock %}
 
-
-
 {% block styles %}
 
 .time{
-  margin-left: 85px;
+  margin-left: 330px;
+  margin-bottom: 5px;
 }
 
-
 table{
-  margin-left: 85px;
+  margin-left: 250px;
 }
 
 h1{
@@ -20,25 +18,23 @@ h1{
 
 .cooking{
   font-family: 'Trattatello', fantasy;
-
-  background: rgb(238, 188, 103);
- border: 4px double black;
- border-radius: 20px;
- margin: 1%;
- padding: 1%
+  font-size: 16px;
+    font-style: italic;
+ border: 2px solid black;
+margin: 5%;
+padding: 25px;
 }
 
-
 .lux {
-
-  margin-bottom: 45px;
+padding-left: 10p;
+  margin-bottom: 5px;
     width: 300px;
     border: 1px inset #a52a2a;
     border-collapse: collapse;
     border-spacing: 0;
 	text-align:center;
   border-radius: 2px;
-
+font-size: 15px;
    }
 .lux th {
     background: #a52a2a;
@@ -58,9 +54,9 @@ tr:nth-child(odd) {
 
 {% block content %}
 
-
 <div class="ingredients">
-  <p class="time">Время готовки: {{ post.time_cooking }}</p>
+  <a class="time">Время готовки: {{ post.time_cooking }}</a>
+  <p></p>
   <table class="lux">
     <th>Ингредиенты</th>
   {% for each in post.ingredients_as_list %}
@@ -68,8 +64,8 @@ tr:nth-child(odd) {
   {% endfor %}
   </table>
 </div>
-
 <div class="cooking">
   <a>{{ post.cooking }}</a>
 </div>
+
 {% endblock %}

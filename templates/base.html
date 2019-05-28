@@ -5,28 +5,67 @@
     {% endblock %}
     <meta charset="utf-8">
     <title>{% block title %}Title name{% endblock %}</title>
-    <style type="text/css">{% block styles %}{% endblock %}
-.header {
+    <style type="text/css">{% block styles %}beautiful styles{% endblock %}
+
+.header{
   display: block;
-  height: 130px;
-  background: #a52a2a;
-    }
-.head{
-color: rgb(144, 144, 144)
+  height: 50px;
+    background: black no-repeat center bottom;
 }
-.head1{
-  color: white;
+
+.home{
+  font-family: Alice:cursive;
+  color:red;
+  font-size: 30px;
+  margin-right: 250px;
+  margin-left: 5px;
+  text-decoration: none;
 }
+
+.home.hover{
+  color: white
+}
+
+.recepts{
+  font-family: Alice:cursive;
+  color:red;
+  font-size: 30px;
+  margin-right: 270px;
+  text-decoration: none;
+}
+
+.login{
+  font-family: Alice:cursive;
+  color:red;
+  font-size: 30px;
+  margin-right: 240px;
+  text-decoration: none;
+}
+
+.register{
+  font-family: Tahoma;
+  color:red;
+  font-size: 30px;
+
+  text-decoration: none;
+}
+
+.title{
+  color: rgb(242, 211, 0);
+}
+
     </style>
   </head>
   <body>
-    <div class="header">
-    <a class="head" href ="/" >Home</a>
-    <a class="head" href = "/recepts/">Recipes</a>
-    <a class="head" href = "/login/">Login</a>
-    <a class="head" href = "/register/">Registraton</a>
-    <h1 class="head1" align="center">{{ post.title }}</h1>
+
+  <div class="header">
+    <a class="home" href ="/" >Home</a>
+    <a class="recepts" href = "/recepts/">Recipes</a>
+    <a class="login" href = "/login/">Login</a>
+    <a class="register" href = "/register/">Registraton</a>
 </div>
+<h1 class="title" align="center">{{ post.title }}</h1>
+
     {% block content %}
     {% endblock %}
   </body>

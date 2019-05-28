@@ -45,7 +45,7 @@ class LoginFormView(FormView):
 
 	template_name = "post/login.html"
 
-	success_url = "/post/page/"
+	success_url = "/recepts/"
 	def form_valid(self, form):
 		self.user = form.get_user()
 

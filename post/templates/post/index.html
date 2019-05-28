@@ -4,13 +4,19 @@
   {% endblock %}
   {% block styles %}
 
-    .grid-container{
+    .flex-container{
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content:center;
+    align-items: center;
   }
 
   .item {
-    flex: 1 0 21%; /* explanation below */
+    font-size: 14px;
+  }
+
+  .pagination{
+    align-item:center
   }
   {% endblock %}
 
@@ -22,7 +28,7 @@ Start page
 <br>
 <br>
 <br>
-<div class="grid-container">
+<div class="flex-container">
   {% for post in page_object.object_list %}
   <div class="item">
     <div class="card mb-4 ml-5 bg-light text-dark border-dark" style="width: 20rem;" >

@@ -5,62 +5,57 @@
     {% endblock %}
     <meta charset="utf-8">
     <title>{% block title %}Title name{% endblock %}</title>
-    <style type="text/css">{% block styles %}beautiful styles{% endblock %}
+    <style type="text/css">
+
+    {% block styles %}
+    beautiful styles
+    {% endblock %}
 
 .header{
-  display: block;
-  height: 50px;
-    background: black no-repeat center bottom;
+  height: 64px;
+  background: black;
 }
+    .mainmenubtn {
+        background-color: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding:20px;
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
 
-.home{
-  font-family: "Alice: cursive";
-  color:red;
-  font-size: 30px;
-  margin-right: 250px;
-  margin-left: 5px;
-  text-decoration: none;
-}
-
-
-.recepts{
-  font-family: Alice;
-  color:red;
-  font-size: 30px;
-  margin-right: 270px;
-  text-decoration: none;
-}
-
-.login{
-  font-family: "Alice":cursive;
-  color:red;
-  font-size: 30px;
-  margin-right: 240px;
-  text-decoration: none;
-}
-
-.register{
-  font-family: "Alice";
-  color:red;
-  font-size: 30px;
-
-  text-decoration: none;
-}
-
-.title{
-  color: rgb(242, 211, 0);
-}
-
+    }
+    .dropdown-child {
+        display: none;
+        background-color: orange;
+        min-width: 140px;
+    }
+    .dropdown-child a {
+        color: white;
+        padding: 20px;
+        text-decoration: none;
+        display: block;
+    }
+    .dropdown:hover .dropdown-child {
+        display: block;
+    }
     </style>
   </head>
   <body>
-
-  <div class="header">
+<div class="header">
+  <div class="dropdown">
+    <button class="mainmenubtn">Главное меню</button>
+     <div class="dropdown-child">
     <a class="home" href ="/" >Home</a>
     <a class="recepts" href = "/recepts/">Recipes</a>
     <a class="login" href = "/login/">Login</a>
     <a class="register" href = "/register/">Registraton</a>
 </div>
+</div>
+</div>
+
 <h1 class="title" align="center">{{ post.title }}</h1>
 
     {% block content %}

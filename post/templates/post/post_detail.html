@@ -1,71 +1,102 @@
 {% extends 'base.html' %}
+<head>
 {% block title %}{{post.title}}{% endblock %}
 
+<style>
 {% block styles %}
-
-.time{
-  margin-left: 330px;
-  margin-bottom: 5px;
+body{
+  margin:0px;
 }
 
-table{
-  margin-left: 250px;
+.flex-container-1 {
+    display: flex;
+  flex-direction:row;
+
 }
 
-h1{
-  color:red;
+.flex-container_element-1
+{
+  width: 270px;
+  height: 450px;
+  margin-left: 230px;
+  font-size: 12px;
+}
+
+
+.flex-container-2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.element-21{
+   width: 830px;
+ height: 50px;
+ margin: auto;
+}
+
+.ingredients{
+  border-bottom: 1px dashed black;
 }
 
 .cooking{
-  font-family: 'Trattatello', fantasy;
-  font-size: 16px;
-    font-style: italic;
- border: 2px solid black;
-margin: 5%;
-padding: 25px;
+color: white;
 }
 
-.lux {
-padding-left: 10p;
-  margin-bottom: 5px;
-    width: 300px;
-    border: 1px inset #a52a2a;
-    border-collapse: collapse;
-    border-spacing: 0;
-	text-align:center;
-  border-radius: 2px;
-font-size: 15px;
-   }
-.lux th {
-    background: #a52a2a;
-    color: white;
-   }
-.lux td {
-    border-bottom: 1px inset black;
-   }
-.lux td, .lux th {
-    padding: 4px;
+.ingredient{
+  border: 1px solid black;
+  padding: 15px;
+
+  font-family: 'Altegreya';
 }
-tr:nth-child(odd) {
-	background:#fff8dc;
+
+.image{
+border: 4px double red;
+border-radius:10px;
+width:400px;
+height:400px;
+margin:auto;
+}
+
+
+.cook{
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 5px;
+  background: rgb(251, 90, 0);
+}
+
+.time{
+  margin-left:50px;
+  font-size: 14px;
 }
 
 {% endblock %}
+</style>
+</head>
+
 
 {% block content %}
 
-<div class="ingredients">
-  <a class="time">Время готовки: {{ post.time_cooking }}</a>
-  <p></p>
-  <table class="lux">
-    <th>Ингредиенты</th>
+<div class="flex-container-1">
+<div class="flex-container_element-1">
+<a class="time" align="center">Время готовки: {{ post.time_cooking }}</a>
+      <p></p>
+    <div class="ingredient">
+        <a>Ингредиенты</a>
   {% for each in post.ingredients_as_list %}
-<tr><td>{{each}}</td></tr>
+      <p class="ingredients">{{each}}</p>
   {% endfor %}
-  </table>
+  </div>
 </div>
-<div class="cooking">
-  <a>{{ post.cooking }}</a>
+<div class="image">картинка</div>
 </div>
 
+<div class="flex-container-2">
+<div class="element-21">
+  <h4 align="center">Приготовление</h4>
+  <div class="cook">
+  <a class="cooking">{{ post.cooking }}</a>
+  </div>
+  </div>
+</div>
 {% endblock %}

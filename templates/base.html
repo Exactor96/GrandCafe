@@ -4,57 +4,51 @@
     {% block head %}
     {% endblock %}
     <meta charset="utf-8">
+
     <title>{% block title %}Title name{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <style type="text/css">
 
     {% block styles %}
     beautiful styles
     {% endblock %}
 
-.header{
-  height: 64px;
-  background: black;
-}
-    .mainmenubtn {
-        background-color: red;
-        color: white;
-        border: none;
-        cursor: pointer;
-        padding:20px;
-    }
-    .dropdown {
-        position: relative;
-        display: inline-block;
-
-    }
-    .dropdown-child {
-        display: none;
-        background-color: orange;
-        min-width: 140px;
-    }
-    .dropdown-child a {
-        color: white;
-        padding: 20px;
-        text-decoration: none;
-        display: block;
-    }
-    .dropdown:hover .dropdown-child {
-        display: block;
-    }
     </style>
   </head>
   <body>
-<div class="header">
-  <div class="dropdown">
-    <button class="mainmenubtn">Главное меню</button>
-     <div class="dropdown-child">
-    <a class="home" href ="/" >Home</a>
-    <a class="recepts" href = "/recepts/">Recipes</a>
-    <a class="login" href = "/login/">Login</a>
-    <a class="register" href = "/register/">Registraton</a>
+
+    <nav class="navbar navbar-dark bg-dark">
+
+      <div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Главное меню
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="/">Домой</a>
+    <a class="dropdown-item" href="/recepts/">Все рецепты</a>
+    <a class="dropdown-item" href="*">Первое блюдо</a>
+      <a class="dropdown-item" href="*">Второе блюдо</a>
+      <a class="dropdown-item" href="/register/">Зарегистрироваться</a>
+    <a class="dropdown-item" href="/login/">Войти</a>
+  </div>
 </div>
-</div>
-</div>
+    <a class="text-light bg-dark">Закуски</a>
+      <a class="text-light bg-dark">Напитки</a>
+        <a class="text-light bg-dark">Бульоны и супы</a>
+        <a class="text-light bg-dark">Соусы</a>
+        <a class="text-light bg-dark">Салаты</a>
+        <a class="text-light bg-dark">Выпечка</a>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Найти</button>
+      </form>
+    </nav>
+
+
+
+
 
 <h1 class="title" align="center">{{ post.title }}</h1>
 

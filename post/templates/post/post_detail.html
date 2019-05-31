@@ -2,6 +2,7 @@
 <head>
   {% block head %}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
   {% endblock %}
 
 {% block title %}{{post.title}}{% endblock %}
@@ -9,38 +10,11 @@
 
 <style>
 {% block styles %}
-body{
-  margin:0px;
-}
-
-.flex-container-1 {
-    display: flex;
-  flex-direction:row;
-
-}
-
-.flex-container_element-1
-{
-  width: 270px;
-  height: 450px;
-  margin-left: 230px;
-  font-size: 12px;
-}
-
-
-.flex-container-2 {
-  display: flex;
-  flex-direction: row;
-}
-
-.element-21{
-   width: 830px;
- height: 50px;
- margin: auto;
-}
 
 .ingredients{
   border-bottom: 1px dashed black;
+  font-size:12px;
+  color:red;
 }
 
 .cooking{
@@ -50,23 +24,23 @@ color: white;
 .ingredient{
   border: 1px solid black;
   padding: 15px;
-
   font-family: 'Altegreya';
+  font-size:14px;
+  width: 260px;
+  align: right;
+
 }
 
 .image{
-border: 4px double red;
-border-radius:10px;
-width:400px;
-height:400px;
-margin:auto;
+border: 7px solid orange;
+margin-top: 40px;
 }
-
 
 .cook{
   border: 1px solid black;
   padding: 15px;
   border-radius: 5px;
+  color:white;
   background: rgb(251, 90, 0);
 }
 
@@ -75,37 +49,57 @@ margin:auto;
   font-size: 14px;
 }
 
+.prig{
+  padding:7px;
+}
+
+
 {% endblock %}
 </style>
 </head>
-
-
-
-
-
-
-
 {% block content %}
-<div class="flex-container-1">
-<div class="flex-container_element-1">
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-3">
 <a class="time" align="center">Время готовки: {{ post.time_cooking }}</a>
-      <p></p>
-    <div class="ingredient">
-        <a>Ингредиенты</a>
-  {% for each in post.ingredients_as_list %}
-      <p class="ingredients">{{each}}</p>
-  {% endfor %}
+            <p></p>
+          <div class="ingredient">
+              <p align="center">Ингредиенты</p>
+        {% for each in post.ingredients_as_list %}
+            <p class="ingredients">{{each}}</p>
+        {% endfor %}
+        </div>
+    </div>
+    <div class="col-4">
+    <img class="image" src="http://www.akropolcafe.ru/application/uploads/catalog/64740289e9c2e05eebaa8b743bfe645d.jpg" alt="" width="450" height="450" margin-top="40">
+    </div>
+    <div class="col-2"></div>
   </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+  <h4 class="prig" align="center">Приготовление</h4>
 </div>
-<div class="image">картинка</div>
+</div>
 </div>
 
-<div class="flex-container-2">
-<div class="element-21">
-  <h4 align="center">Приготовление</h4>
-  <div class="cook">
-  <a class="cooking">{{ post.cooking }}</a>
-  </div>
-  </div>
+
+<div class="container">
+  <div class="row">
+     <div class="col-2"></div>
+    <div class="col-8">
+      <div class="cook">
+      <a class="cooking">{{ post.cooking }}</a>
+      </div>
 </div>
+<div class="col-2"></div>
+</div>
+</div>
+
 {% endblock %}

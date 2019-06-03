@@ -2,49 +2,71 @@
   {% block head %}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   {% endblock %}
+  <style>
   {% block styles %}
-    .grid-container{
+
+body{
+  background:rgb(255,87,87);
+}
+    .flex-container{
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content:center;
+
   }
 
   .item {
-    flex: 1 0 21%; /* explanation below */
+    font-size: 14px;
+    margin: 10px;
+  }
 
+  .pagination{
+    align-item:center
   }
   {% endblock %}
 
+</style>
 
 {% block tilte %}
-Blog Engine
-{%endblock%}
+Start page
+{% endblock %}
+
 {% block content %}
-<br>
-<br>
-<br>
-<div class="grid-container">
+
+
+
+
+
+<div class="flex-container">
   {% for post in page_object.object_list %}
   <div class="item">
-    <div class="card mb-4 bg-light text-dark border-success" style="width: 25rem;" >
-      <div class="card-body">
-        <h5 class="card-title text-danger">{{ post.title }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ post.date_pb }}</h6>
-         <p class="card-text text-dark">{{ post.ingredients | truncatewords:8}}</p>
-          <p class="card-text text-dark">{{ post.cooking | truncatewords:16}}</p>
-          <p class="card-text">{{ post.date_pb }}</p>
-        <a href="{% url 'post_detail_url' slug=post.slug %}" class="btn btn-info" role="button">Перейти</a>
+
+    <div class="card bg-light mb-3 border-dark" style="max-width: 410px;">
+      <div class="row no-gutters">
+        <div class="col-md-4 ">
+          <img src="http://xn--80aaa5athr.xn--p1ai/wp-content/uploads/2017/11/1%D0%B0%D0%BD%D0%B8-300x300.jpg" class="card-img" alt="..." >
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text text-dark">{{ post.ingredients | truncatewords:6}}</p>
+             <p class="card-text text-dark">{{ post.cooking | truncatewords:12}}</p>
+             <p class="card-text">{{ post.date_pb }}</p>
+             <p class="card-text"><small class="text-muted">{{ post.time_cooking }}</small></p>
+          <div class="text-right"> <a href="{% url 'post_detail_url' slug=post.slug %}" class="btn btn-info btn-sm btn-block" role="button">Перейти</a></div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+</div>
   {% endfor %}
 </div>
 
-
 {% if is_paginated %}
-<nav aria-label="...">
+<nav aria-label="..." >
   <ul class="pagination">
     <li class="page-item {% if not prev_url %} disabled {% endif %}">
-      <a class="page-link" href="{{ prev_url }}" tabindex="-1" aria-disabled="true">Previous</a>
+      <a class="page-link" href="{{ prev_url }}" tabindex="-1" aria-disabled="true">Предыдущая</a>
     </li>
 
     {% for n in page_object.paginator.page_range %}
@@ -58,7 +80,7 @@ Blog Engine
     {% endfor %}
 
     <li class="page-item {% if not next_url %} disabled {% endif %}">
-      <a class="page-link" href="{{next_url}}" tabindex="-1" aria-disabled="true">Next</a>
+      <a class="page-link" href="{{next_url}}" tabindex="-1" aria-disabled="true">Следующая</a>
     </li>
   </ul>
 </nav>

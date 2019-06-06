@@ -11,6 +11,10 @@
 <style>
 {% block styles %}
 
+
+body{
+  margin-top:60px;
+}
 .ingredients{
   border-bottom: 1px dashed black;
   font-size:12px;
@@ -40,21 +44,13 @@ color: white;
 }
 
 .image{
-border: 7px solid orange;
-margin-top: 40px;
+
 }
 
-.cook{
-  border: 1px solid black;
-  padding: 15px;
-  border-radius: 5px;
-  color:white;
-  background: rgb(251, 90, 0);
-}
 
 .time{
   margin-left:50px;
-  font-size: 14px;
+  font-size: 100px;
 }
 
 .prig{
@@ -83,7 +79,8 @@ margin-top: 40px;
         </div>
     </div>
     <div class="col-md-4">
-    <img class="image" src="http://www.akropolcafe.ru/application/uploads/catalog/64740289e9c2e05eebaa8b743bfe645d.jpg" alt="" width="450" height="450" margin-top="40">
+    <img class="image" style="border: 7px solid orange;
+    margin-top: 40px;" src="http://www.akropolcafe.ru/application/uploads/catalog/64740289e9c2e05eebaa8b743bfe645d.jpg" alt="" width="450" height="450" margin-top="40">
     </div>
     <div class="col-md-2"></div>
   </div>
@@ -102,8 +99,8 @@ margin-top: 40px;
   <div class="row">
      <div class="col-2"></div>
     <div class="col-8">
-      <div class="cook">
-      <a class="cooking">{{ post.cooking }}</a>
+      <div class="cook" style="border: 1px solid black; padding: 15px; border-radius: 5px; color:white; background: rgb(251, 90, 0);">
+      <a class="cooking" style="">{{ post.cooking }}</a>
       </div>
 </div>
 <div class="col-2"></div>

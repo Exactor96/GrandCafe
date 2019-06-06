@@ -2,109 +2,99 @@
 <head>
   {% block head %}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
   {% endblock %}
 
 {% block title %}{{post.title}}{% endblock %}
 
-
 <style>
 {% block styles %}
-
 
 body{
   margin-top:60px;
 }
-.ingredients{
-  border-bottom: 1px dashed black;
-  font-size:12px;
-  color:red;
-}
-
-.cooking{
-color: white;
-}
 
 .ingredient{
+  display: flex;
+  justify-content: center;
+  flex-wrap:nowrap;
+  align-items:flex-start;
+}
+
+.ingredient-child{
+  margin-top:7px;
+  width: 12px;
+  text-align:left;
   border: 1px solid black;
   padding: 15px;
   font-family: 'Altegreya';
   font-size:14px;
   width: 260px;
-  align: right;
+}
+
+.ingredient-time{
+  margin-left:11px;
+  font-size: 10px;
+}
+
+.ingredient-check{
+  border-bottom: 1px dashed black;
+  font-size:12px;
+  color:red;
+}
+
+.ingredient-child + .ingredient-picture{
+  margin:7px;
+}
+
+.ingredient-image{
+  border: 7px solid orange;
+  width:400px;
+  height:400px;
+}
 
 .cooking{
-  font-family: 'Trattatello', fantasy;
-    font-style: italic;
-  background: rgb(238, 188, 103);
- border: 4px double black;
- border-radius: 20px;
- margin: 1%;
- padding: 1%
+  display: flex;
+  flex-direction:column;
+  align-items: center;
 }
 
-.image{
-
+.cooking-headline{
+  margin-top:10px;
 }
 
-
-.time{
-  margin-left:50px;
-  font-size: 100px;
+.cooking-cell{
+  border: 1px solid black;
+   padding: 15px;
+   border-radius: 10px;
+   color:white;
+   background: rgb(251, 90, 0);
+   width:55%;
 }
-
-.prig{
-  padding:7px;
-}
-
 
 {% endblock %}
 </style>
 </head>
 {% block content %}
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-3">
-<a class="time" align="center">Время готовки: {{ post.time_cooking }}</a>
-            <p></p>
-          <div class="ingredient">
-              <p align="center">Ингредиенты</p>
+<div class="ingredient">
+<div class="ingredient-child">
+  <a class="ingredient-time">Время готовки: {{ post.time_cooking }}</a>
+    <p></p>
+      <p align="center">Ингредиенты</p>
         {% for each in post.ingredients_as_list %}
-            <p class="ingredients">{{each}}</p>
-        {% endfor %}
+          <p class="ingredient-check">{{each}}</p>
+      {% endfor %}
+    </div>
+<div class="ingredient-picture">
+    <img class="ingredient-image" src="http://www.akropolcafe.ru/application/uploads/catalog/64740289e9c2e05eebaa8b743bfe645d.jpg" alt="image">
         </div>
-    </div>
-    <div class="col-md-4">
-    <img class="image" style="border: 7px solid orange;
-    margin-top: 40px;" src="http://www.akropolcafe.ru/application/uploads/catalog/64740289e9c2e05eebaa8b743bfe645d.jpg" alt="" width="450" height="450" margin-top="40">
-    </div>
-    <div class="col-md-2"></div>
+          </div>
+
+<div class="cooking">
+<div class="cooking-headline">
+  <h4>Приготовление</h4>
   </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-  <h4 class="prig" align="center">Приготовление</h4>
-</div>
-</div>
-</div>
-
-
-<div class="container">
-  <div class="row">
-     <div class="col-2"></div>
-    <div class="col-8">
-      <div class="cook" style="border: 1px solid black; padding: 15px; border-radius: 5px; color:white; background: rgb(251, 90, 0);">
-      <a class="cooking" style="">{{ post.cooking }}</a>
+    <div class="cooking-cell">
+      <a>{{ post.cooking }}</a>
       </div>
 </div>
-<div class="col-2"></div>
-</div>
-</div>
-
 {% endblock %}

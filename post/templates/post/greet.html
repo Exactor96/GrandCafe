@@ -59,8 +59,19 @@ h5{
   margin-top:230px;
   margin-left: 270px;
   border:1px solid yellow;
-  border-radius: 25px;
+  border-radius: 30px;
   text-align:center;
+  width:280px;
+  height:50px;
+  text-decoration:none;
+  font-size:30px;
+}
+
+
+.first-level-link:hover{
+  background:white;
+  color:red;
+  text-decoration:none;
 }
 
 .first-level-border{
@@ -101,6 +112,10 @@ h5{
   border: 3px solid rgb(255, 237, 0);
   align-items:flex-start;
   margin-bottom:20px;
+}
+
+.second-level-picture:hover{
+  border:rgb(255,87,87);
 }
 
 .second-level-headline{
@@ -144,6 +159,11 @@ h5{
     margin-bottom:20px;
   }
 
+  .third-level-picture:hover{
+    border:rgb(255,87,87);
+  }
+
+
 .third-level-border{
   display:flex;
   border: 4px solid yellow;
@@ -173,6 +193,9 @@ h5{
   margin-bottom:10px;
 }
 
+.fourth-level-picture:hover{
+  border:rgb(255,87,87);
+}
 
 .fourth-level-border{
   display:flex;
@@ -241,7 +264,7 @@ h5{
 <div class="first-level-rightplace">
   <h1 class="first-level-main-title">GrandCafe</h1>
       <p class="first-level-subtitle">Сборник рецептов с миру по нитке</p>
-        <div class="first-level-link"><h1 href="/recepts/"> Перейти ➞ </h1></div>
+        <div class="first-level-link"><a href="/recepts/"> Перейти ➞ </a></div>
           </div>
               </div>
 <div class="first-level-border"></div>
@@ -303,12 +326,12 @@ h5{
 
 
 <h3 class="news-for-fifth-level">Новости</h3>
-<div class="fifth-level">
+  <div class="fifth-level">
     <div class="fifth-level-news-headline-1"> <h5>Выбираем самое лучшее мороженое вместе с Роскачеством</h5> <h5>...</h5><h5>Скоро в продаже появится хлеб с минимумом соли</h5> <h5>...</h5><h5>Названы самые эффективные средства для мытья посуды</h5> <h5>...</h5></div>
      <div class="fifth-level-news-headline-2"><h5>Даёшь сдачу стеклотары!</h5> <h5>...</h5> <h5>У почти половины жителей России денег хватает только на еду и одежду</h5> <h5>...</h5><h5>Ананасовый сок улучшает обмен веществ. Доказано!</h5> <h5>...</h5></div>
       <div class="fifth-level-news-headline-3"><h5>Atelier de Tartelettes – новая кондитерская-магазин на Патриарших прудах</h5> <h5>...</h5> <h5>Белые ночи, вкусные дни: в Петербурге пройдет фестиваль Gourmet Days</h5> <h5>Мексиканская кухня новой волны в Community</h5> <h5>...</h5> </div>
        <div class="fifth-level-news-headline-4"></div>
-</div>
+          </div>
 
 
       {% endblock %}

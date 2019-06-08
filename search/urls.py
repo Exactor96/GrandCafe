@@ -15,16 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from post import views
+from . import views
+from django.shortcuts import render
 urlpatterns = [
-#site root
-    path('admin/', admin.site.urls),
-    path('post/', include('post.urls')),
-    path('',views.greet),
-    path('login/',views.LoginFormView.as_view()),
-    path('register/',views.RegisterFormView.as_view()),
-    path('logout/',views.LogoutView.as_view()),
-    path('recepts/',views.paginator),
-    path('search/',include('search.urls'))
+    path('results',views.ESearchView.as_view(), name='search'),
+    path('',views.search),
 
 ]

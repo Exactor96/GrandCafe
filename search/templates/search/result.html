@@ -1,0 +1,14 @@
+<h1>Поиск</h1>
+    {% if post_lists %}
+        {% for post in post_lists %}
+            <article>
+                <a href="{% url 'post_detail_url' slug=post.slug %}">
+                    <h2>{{ post.title }}</h2>
+                </a>
+                {{ post.cooking | truncatewords:12}}
+                <p><a href="{% url 'post_detail_url' slug=post.slug %}">Читать далее</a></p>
+            </article>
+        {% endfor %}
+      {%else%}
+      <h1>NOT FOUND</h1>
+      {% endif %}

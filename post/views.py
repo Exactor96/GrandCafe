@@ -3,10 +3,8 @@ from .models import Post, Tag, Human
 from django.views.generic.base import View
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import logout
-from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
+from django.contrib.auth import logout,login
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator
 # Create your views here.

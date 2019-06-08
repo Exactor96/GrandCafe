@@ -1,6 +1,11 @@
 from django.db import models
 
 # Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length=30, db_index= True)
+    def __str__(self):
+        return '{}'.format(self.name)
+
 
 class Post(models.Model):
     title = models.CharField(max_length=150, db_index= True)
@@ -11,6 +16,7 @@ class Post(models.Model):
     cooking = models.TextField(blank=False)
     date_pub = models.DateTimeField(auto_now_add=True)
     time_cooking = models.TextField(blank=True, max_length=10)
+    category = models.ForeignKey(Category, on_delete = models.PROTECT)
 
     def ingredients_as_list(self):
         return self.ingredients.split('\n')

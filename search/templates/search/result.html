@@ -1,14 +1,59 @@
-<h1>Поиск</h1>
-    {% if post_lists %}
-        {% for post in post_lists %}
-            <article>
-                <a href="{% url 'post_detail_url' slug=post.slug %}">
-                    <h2>{{ post.title }}</h2>
-                </a>
-                {{ post.cooking | truncatewords:12}}
-                <p><a href="{% url 'post_detail_url' slug=post.slug %}">Читать далее</a></p>
-            </article>
-        {% endfor %}
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+<style media="screen">
+body{
+  background:rgb(255,87,87);
+}
+
+  .search{
+  display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+  }
+.form-inline{
+  margin-top:10px;
+  margin-right:15px;
+display:flex;
+justify-content:flex-end;
+}
+
+.search-headline{
+  color:white;
+  margin-bottom:20px;
+}
+
+.search-card{
+  margin-bottom:20px;
+}
+
+</style>
+</head>
+<form class="form-inline" action="/search/results"  method="get">
+  <input class="form-control mr-sm-4" name="q" type="text" placeholder="Поиск" aria-label="Search">
+  <button class="btn btn-primary my-2 my-sm-4" type="submit">Найти</button>
+</form>
+
+
+<div class="search">
+  <h1 class="search-headline">Поиск</h1>
+  {% if post_lists %}
+{% for post in post_lists %}
+<div class="col-sm-7">
+<div class="search-card">
+  <div class="card bg-light text-xs-left">
+<h3 class="card-header">{{ post.title }}</h3>
+          <div class="card-block">
+          <p class="card-text">{{ post.cooking | truncatewords:12}}</p>
+          <a href="{% url 'post_detail_url' slug=post.slug %}" class="btn btn-sm btn-info">Читать далее</a>
+        </div>
+        </div>
+          </div>
+          </div>
+    {% endfor %}
       {%else%}
-      <h1>NOT FOUND</h1>
+      <h1>НЕ НАЙДЕНО</h1>
       {% endif %}
+  </div>

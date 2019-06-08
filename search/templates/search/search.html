@@ -1,6 +1,11 @@
-<form action="/search/results"  method="get">
+<form action="/search/results" id="srch" method="get">
     <div class="input-group">
         <input id="search" name="q" type="text" placeholder="Поиск">
-        <button type="submit"</button>
+        <select id="type" name='s' form="srch">
+            <option>Название</option>
+            <option>Ингредиенты</option>
+            <option>Категория</option>
+        </select>
+        <button type="submit" title="Search"</button>
     </div>
 </form>

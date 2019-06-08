@@ -13,7 +13,7 @@ class ESearchView(View):
 
         question = request.GET.get('q')
         if question is not None:
-            search_posts = Post.objects.filter(ingredients__contains=question)
+            search_posts = Post.objects.filter(title__contains=question)
 
             # forming a URL string that will contain the last request.
             # This is important for correct operation of pagination

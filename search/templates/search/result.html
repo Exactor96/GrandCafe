@@ -1,6 +1,12 @@
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+
+
+
 <style media="screen">
 body{
   background:rgb(255,87,87);
@@ -14,11 +20,47 @@ body{
 
   }
 .form-inline{
-  margin-top:10px;
-  margin-right:15px;
+  margin-top:30px;
+
+  margin-bottom:35px;
 display:flex;
-justify-content:flex-end;
+justify-content:center;
 }
+
+.form-button{
+  display:flex;
+    flex-direction:row;
+  justify-content:center;
+  margin-bottom:30px;
+  margin-left:277px;
+  margin-right:277px;
+}
+
+.first-level-form{
+  display:flex;
+    flex-direction:row;
+  justify-content:center;
+}
+
+
+.second-level-form{
+  display:flex;
+    flex-direction:row;
+  justify-content:center;
+}
+
+.form-group{
+  margin-right:20px;
+}
+
+.third-level-form{
+  display:flex;
+    flex-direction:row;
+  justify-content:center;
+  margin-top:30px;
+  margin-bottom:30px;
+}
+
 
 .search-headline{
   color:white;
@@ -31,10 +73,72 @@ justify-content:flex-end;
 
 </style>
 </head>
+
+
 <form class="form-inline" action="/search/results"  method="get">
-  <input class="form-control mr-sm-4" name="q" type="text" placeholder="Поиск" aria-label="Search">
-  <button class="btn btn-primary my-2 my-sm-4" type="submit">Найти</button>
+  <input class="form-control" name="q" type="text" placeholder="Поиск" aria-label="Search" style="width: 50%">
+  <button class="btn btn-primary" type="submit">Найти</button>
 </form>
+
+<div class="form-button">
+<button class="btn btn-primary btn-md btn-block"  data-toggle="collapse" data-target="#hide">Расширенный поиск</button></div>
+<div class="collapse" id="hide">
+
+<div class="first-level-form">
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Название рецепта</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+</form>
+
+<form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Ингредиенты</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+    </div>
+</form>
+
+<form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Приготовление</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+      </div>
+    </form>
+</div>
+
+<div class="second-level-form">
+<div class="col-sm-2">
+  <label for="exampleInputEmail1">Категория</label>
+  <select class="form-control">
+  <option>Все</option>
+  <option>Первое блюдо</option>
+  <option>Второе блюдо</option>
+  <option>Закуски</option>
+  <option>Выпечка</option>
+  <option>Десерты</option>
+<option>Напитки</option>
+<option>Соусы</option>
+</select>
+</div>
+
+<div class="col-sm-2">
+    <label for="exampleInputEmail1">Время</label>
+<select class="form-control">
+  <option>Любое</option>
+    <option>30 минут</option>
+      <option>1 час</option>
+        <option>2 часа</option>
+          <option>3 часа</option>
+</select>
+  </div>
+  </div>
+
+<div class="third-level-form">
+<button type="button" class="btn btn-primary">Найти рецепт</button>
+</div>
+</div>
+
 
 
 <div class="search">

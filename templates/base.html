@@ -15,8 +15,20 @@
     beautiful styles
     {% endblock %}
 
+
+.footer{
+  height: 100px;
+  background: rgb(42, 42, 42);
+  text-align:center;
+  color: white;
+  margin-top: 40px;
+}
+.footer-content{
+  padding: 12px;
+}
     </style>
   </head>
+  
   <body>
 
     <nav class="navbar navbar-dark bg-dark fixed-top">
@@ -154,8 +166,18 @@
       </form>
     </nav>
 
+
+
 <h1 class="title" align="center">{{ post.title }}</h1>
-    {% block content %}
+{% block content %}
     {% endblock %}
+
+<footer class="footer">
+
+ <p class="footer-content">Copyright: DeadXipster, Exactor96
+   <br>Email:123456789@email.com
+   <br>Все права защищены!</p>
+  </div>
+</footer>
   </body>
 </html>

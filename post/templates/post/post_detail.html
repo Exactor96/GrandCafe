@@ -82,6 +82,8 @@ body{
 </style>
 </head>
 {% block content %}
+<p style="text-align: center;">{{ post.views }} просмотров</p>
+<p>{{ hitcount.total_hits }}</p>
 <div class="ingredient">
 <div class="ingredient-child">
   <a class="ingredient-time">Время готовки: {{ post.time_cooking }}</a>

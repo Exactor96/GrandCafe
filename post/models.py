@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.contrib.contenttypes.fields import GenericRelation
+from hitcount.models import HitCount, HitCountMixin
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=30, db_index= True)
@@ -7,7 +8,7 @@ class Category(models.Model):
         return '{}'.format(self.name)
 
 
-class Post(models.Model):
+class Post(models.Model,HitCountMixin):
     title = models.CharField(max_length=150, db_index= True)
     slug = models.SlugField(max_length=150, unique=True, db_index=True)
     category = models.TextField(max_length=50, blank=True)
@@ -17,6 +18,11 @@ class Post(models.Model):
     date_pub = models.DateTimeField(auto_now_add=True)
     time_cooking = models.TextField(blank=True, max_length=10)
     category = models.ForeignKey(Category, on_delete = models.PROTECT)
+    views = models.IntegerField(blank=False,default=0)
+    hit_count_generic = GenericRelation(
+        HitCount, object_id_field='object_pk',
+        related_query_name='hit_count_generic_relation')
+
 
     def ingredients_as_list(self):
         return self.ingredients.split('\n')

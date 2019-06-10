@@ -7,6 +7,7 @@ from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import logout,login
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator
+from django.db.models import F
 # Create your views here.
 
 
@@ -86,6 +87,7 @@ def paginator(request):
 
 def post_detail(request, slug):
 	post = Post.objects.get(slug__iexact=slug)
+	Post.objects.filter(slug__iexact=slug).update(views=F('views')+1)
 	return render(request, 'post/post_detail.html',context={'post':post})
 
 

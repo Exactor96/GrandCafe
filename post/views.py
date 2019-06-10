@@ -8,6 +8,8 @@ from django.contrib.auth import logout,login
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator
 from django.db.models import F
+from .forms import PostForm
+from uuslug import slugify
 # Create your views here.
 
 
@@ -90,6 +92,24 @@ def post_detail(request, slug):
 	Post.objects.filter(slug__iexact=slug).update(views=F('views')+1)
 	return render(request, 'post/post_detail.html',context={'post':post})
 
+def add_post(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.title = request.POST["title"]
+            post.slug = slugify(request.POST["title"])
+            print(slugify(request.POST["title"]))
+            #post.category = category.filter(id__iexact=request.POST["category"]).get('name')
+            #post.tags = request.POST["tags"]
+            post.ingredients = request.POST["ingredients"]
+            post.cooking = request.POST["cooking"]
+            post.time_cooking = request.POST["time_cooking"]
+            post.save()
+            return HttpResponseRedirect("/")
+    else:
+        form = PostForm()
+    return render(request, 'post/add.html', {'form': form})
 
 def post_tags(request):
 	tags = Tag.objects.all()

@@ -10,8 +10,9 @@ urlpatterns = [
     path(r'', views.MainView.as_view()),  # <---post root
     #path('recepts/', paginator, name="home_url"),  # <---/post/page
     path('recept/<str:slug>/', post_detail, name='post_detail_url'),  # /post/page/ReCept Slug
+    path('add/', add_post, name='post_add'),  # adding post /post/add/
     path('tags/', post_tags, name='post_tags_url'),
-    
+
 
 
 ]

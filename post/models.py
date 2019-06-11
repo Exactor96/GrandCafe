@@ -7,6 +7,11 @@ class Category(models.Model):
     def __str__(self):
         return '{}'.format(self.name)
 
+class SubCategory(models.Model):
+    name = models.CharField(max_length=30, db_index= True)
+    category=models.ForeignKey(Category, on_delete = models.PROTECT,default=0)
+    def __str__(self):
+        return '{}'.format(self.name)
 
 class Post(models.Model,HitCountMixin):
     title = models.CharField(max_length=150, db_index= True)
@@ -17,7 +22,8 @@ class Post(models.Model,HitCountMixin):
     cooking = models.TextField(blank=False)
     date_pub = models.DateTimeField(auto_now_add=True)
     time_cooking = models.TextField(blank=True, max_length=10)
-    category = models.ForeignKey(Category, on_delete = models.PROTECT)
+    category = models.ForeignKey(Category, on_delete = models.PROTECT,default=0)
+    subcategory=models.ForeignKey(SubCategory, on_delete = models.PROTECT,default=0)
     views = models.IntegerField(blank=False,default=0)
     hit_count_generic = GenericRelation(
         HitCount, object_id_field='object_pk',

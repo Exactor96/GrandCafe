@@ -19,7 +19,7 @@
 
 
     .footer{
-      height: 100px;
+      height: 130px;
       background: rgb(42, 42, 42);
       text-align:center;
       color: white;
@@ -27,15 +27,26 @@
        margin-bottom:0px;
     }
 
+#email{
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.label{
+  display: flex;
+  justify-content:flex-end;
+  margin-right: 150px;
+  font-size: 15px;
+  margin-top: -20px;
+}
 
 
     </style>
   </head>
 
   <body>
-
     <nav class="navbar navbar-dark bg-dark fixed-top">
-
       <div class="btn-group">
   <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Главное меню
@@ -176,10 +187,24 @@
     {% endblock %}
 
     <footer class="footer">
-        <p class="footer-content">Copyright: DeadXipster, Exactor96
-          <br>Email:123456789@email.com
-          <br>Все права защищены!</p>
+      <form class="form-inline" id="email" method="get">
+        <div class="left-content">
+ <a>Создатели:DeadXipster, Exactor96 <br> Email:123456789@email.com <br> Все права защищены!</a>
+</div>
+
+ <div class="input-group mb-3">
+   <div class="input-group-prepend">
+     <span class="input-group-text" id="basic-addon1">@</span>
+       </div>
+          <input type="text" class="form-control" placeholder="Ваш email" aria-label="Имя пользователя" aria-describedby="basic-addon1">
+            <button class="btn btn-danger" type="submit">Подписаться</button>
+            </div>
+          </form>
+          <a class="label">Подписывайтесь для получения новых рецептов</a>
        </footer>
+
+
+
 
 </body>
 </html>

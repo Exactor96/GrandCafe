@@ -1,5 +1,99 @@
-    <h1>Добавление рецепта</h1>
-    <form method="POST">{% csrf_token %}
-        {{ form.as_ul }}
-        <button type="submit"">Save</button>
+{% extends 'base.html' %}
+<head>
+  {% block head %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+<style type="text/css">
+{% block styles %}
+
+body{
+  background:rgb(255,87,87);
+}
+
+#form-add{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+ margin-left:300px;
+ margin-right:250px;
+height:1150px;
+}
+
+.headline{
+  text-align:center;
+  margin-top:10px;
+    margin-bottom:40px;
+}
+
+#id_title{
+    margin-left:53px;
+}
+
+textarea{
+  width:400px;
+  height:200px;
+  border-radius:5px;
+}
+
+select[name="category"]{
+  width:300px;
+  height:40px;
+  background:#007bff;
+  color:white;
+  radius:5px;
+  margin-left:15px;
+}
+
+#id_category{
+  width:200px;
+  border-radius:4px;
+}
+
+#id_tags{
+  width:200px;
+  height:40px;
+  margin-left:50px;
+  border-radius:4px;
+}
+
+#id_ingredients{
+  margin-left:17px;
+}
+
+#id_cooking{
+    margin-left:42px;
+}
+
+#button-add{
+  margin-left:220px;
+}
+
+
+  {% endblock %}
+{% endblock %}
+  </head>
+  </style>
+{% block content %}
+<body>
+  <div class="col-sm-6" id="form-add">
+  <div class="card border-dark">
+      <div class="card-header bg-dark text-light text-center">Добавление рецепта</div>
+  <div class="card-body bg-warning"  style="width: 38rem;">
+    <form method="POST" class="form-group">
+      <div class="form-base">
+      {% csrf_token %}
+        {{ form.as_p}}
+        </div>
+        <button type="submit" class="btn btn-primary" id="button-add">Добавить рецепт</button>
     </form>
+    </div>
+  </div>
+</div>
+    </body>
+{% endblock %}

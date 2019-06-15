@@ -1,13 +1,66 @@
-<!DOCTYPE html>
-  <head>
-    <title>Вход</title>
-  </head>
-  <body>
-    <form action="" method="post">
-      {% csrf_token %}
-      {{form.as_p}}
-      <button type="submit">Войти</button>
-    </form>
+{% extends 'base.html' %}
 
+{% block head %}
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+<style type="text/css">
+ {% block styles %}
+
+
+body{
+  background:url(https://cdn.pixabay.com/photo/2016/03/09/09/43/food-1245955_960_720.jpg)no-repeat center center fixed;
+        background-size: cover;
+        } 
+
+.card-all{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+      
+}
+
+#card{
+   display:flex;
+   align-items:center;
+  border-radius:20px;
+  margin-top:100px;
+  margin-bottom:350px;
+}
+
+#button-enter{
+  margin-top:45px;
+  border-radius:15px;
+}
+
+  </head>
+  {% endblock %}
+  </style>
+   {% endblock %}
+
+{% block content %}
+<body>
+  <div class="card-all">
+<div class="card bg-danger text-warning text-center border-warning" style="width: 22rem;" id="card">
+  <div class="card-body">
+    <div class="form-group">
+    <label for="formGroupExampleInput2">Логин</label>
+    <input type="text" class="form-control border-warning" id="formGroupExampleInput2" placeholder="Логин">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Пароль</label>
+    <input type="password" class="form-control border-warning" id="exampleInputPassword1" placeholder="Пароль">
+  </div>
+
+<button type="submit" name="button" class="btn btn-dark btn-block" id="button-enter">Войти</button>
+
+  </div>
+</div>
+</div>
   </body>
 </html>
+   {% endblock %}
+

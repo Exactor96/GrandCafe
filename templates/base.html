@@ -18,11 +18,8 @@
 
 
 
-    .footer{
-      height: 130px;
-      background: rgb(42, 42, 42);
-      text-align:center;
-      color: white;
+    .footer-down{
+      text-align:center;   
       margin-top: 40px;
        margin-bottom:0px;
     }
@@ -36,9 +33,9 @@
 .label{
   display: flex;
   justify-content:flex-end;
-  margin-right: 150px;
+  
   font-size: 15px;
-  margin-top: -20px;
+ 
 }
 
 
@@ -187,7 +184,7 @@
 {% block content %}
     {% endblock %}
 
-    <footer class="footer">
+    <footer class="footer-down" style="background: rgb(42, 42, 42); color: white; height: 130px;">
       <form class="form-inline" id="email" method="get">
         <div class="left-content">
  <a>Создатели:DeadXipster, Exactor96 <br> Email:123456789@email.com <br> Все права защищены!</a>
@@ -201,7 +198,7 @@
             <button class="btn btn-danger" type="submit">Подписаться</button>
             </div>
           </form>
-          <a class="label">Подписывайтесь для получения новых рецептов</a>
+          <a class="label" style="margin-right: 150px;  margin-top: -20px;">Подписывайтесь для получения новых рецептов</a>
        </footer>
 
 

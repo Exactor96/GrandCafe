@@ -1,12 +1,90 @@
-<!DOCTYPE html>
-  <head>
-    <title>Регистрация</title>
-  </head>
-  <body>
-    <form action="" method="post">{% csrf_token %}
+{% extends 'base.html' %}
 
-      {{form.as_p}}
-      <button type="submit" name="button">Зарегистрироваться</button>
-    </form>
+{% block head %}
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+<style type="text/css">
+ {% block styles %}
+ 
+ 
+body{
+  background:url(https://cdn.pixabay.com/photo/2017/07/24/14/43/lavender-2534898_960_720.jpg)no-repeat center center fixed;
+        background-size: cover;
+        }
+
+.card-all{
+	display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+#card{
+display: flex;
+  align-items: center;
+  justify-content: space-around;
+	margin-top:100px;
+	margin-bottom:95px;
+	
+	border-radius:20px;
+	
+}
+
+
+
+#button-reg{
+	border-radius:15px;
+}
+
+ </head>
+  {% endblock %}
+  </style>
+   {% endblock %}
+
+{% block content %}
+  <body>
+  	<div class="card-all">
+  	<div class="card bg-danger text-warning text-center border-warning" style="width: 22rem;" id="card">
+  <div class="card-body"> 
+  	<div class="form-group">
+    <label for="formGroupExampleInput2">Логин</label>
+    <input type="text" class="form-control border-warning" id="formGroupExampleInput2" placeholder="Логин">
+  </div>
+    <form>
+ <div class="form-group">
+    <label for="exampleInputEmail1">Email</label>
+    <input type="email" class="form-control border-warning" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+
+<div class="form-group">
+  <label for="example-date-input" class="form-label">Дата рождения</label>
+    <input class="form-control" type="date" value="today" id="example-date-input">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Пароль</label>
+    <input type="password" class="form-control border-warning" id="exampleInputPassword1" placeholder="Пароль">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Повторите пароль</label>
+    <input type="password" class="form-control border-warning" id="exampleInputPassword1" placeholder="Повторите пароль">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+
+    <label class="form-check-label" for="exampleCheck1">Подписаться на рассылку</label>
+  </div>
+      <button type="submit" name="button" class="btn btn-dark" id="button-reg">Зарегистрироваться</button>
+</form>
+    </div>
+</div>
+</div>
   </body>
 </html>
+   {% endblock %}
+
+
+
+  

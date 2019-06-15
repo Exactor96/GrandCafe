@@ -1,0 +1,72 @@
+body{
+  background:rgb(255,87,87);
+}
+
+  .search{
+  display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+  }
+.form-inline{
+  margin-top:80px;
+
+  margin-bottom:35px;
+display:flex;
+justify-content:center;
+}
+
+.form-button{
+  display:flex;
+    flex-direction:row;
+  justify-content:center;
+  margin-bottom:30px;
+  margin-left:280px;
+  margin-right:280px;
+}
+
+.first-level-form{
+  display:flex;
+    flex-direction:row;
+  justify-content:center;
+  margin-left:30px;
+  margin-right:10px;
+}
+
+
+.second-level-form{
+  display:flex;
+    flex-direction:row;
+  justify-content:center;
+}
+
+.form-group{
+  margin-right:20px;
+}
+
+.third-level-form{
+  display:flex;
+    flex-direction:row;
+  justify-content:center;
+  margin-top:30px;
+  margin-bottom:30px;
+}
+
+
+.search-headline{
+  color:white;
+  margin-bottom:20px;
+}
+
+.search-card{
+  margin-bottom:20px;
+}
+
+#card-button{
+  margin-bottom:20px;
+}
+
+.btn-group{
+margin-right:58px;
+}

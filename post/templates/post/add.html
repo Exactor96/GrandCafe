@@ -34,14 +34,7 @@ textarea{
   border-radius:5px;
 }
 
-select[name="category"]{
-  width:300px;
-  height:40px;
-  background:#007bff;
-  color:white;
-  radius:5px;
-  margin-left:15px;
-}
+
 
 #id_category{
   width:200px;
@@ -67,6 +60,8 @@ select[name="category"]{
   margin-left:220px;
 }
 
+
+
   </head>
   {% endblock %}
   </style>
@@ -76,7 +71,6 @@ select[name="category"]{
 {% block content %}
 <body>
 <form method="post" action="{% url 'post_add' %}"> {% csrf_token %}
-
   <div class="col-sm-6" id="form-add">
   <div class="card border-dark">
       <div class="card-header bg-dark text-light text-center">Добавление рецепта</div>
@@ -84,23 +78,42 @@ select[name="category"]{
 
     <div class="input-group mb-3">
   <div class="input-group-prepend">
-    <button class="btn btn-outline-primary" type="button"  id="button-addon1">Название рецепта</button>
+   <label class="input-group-text text-dark" for="inputGroupSelect01">Название рецепта</label>
   </div>
   <input type="text" class="form-control" placeholder="" name="title" aria-label="Example text with button addon" aria-describedby="button-addon1">
 </div>
 
+
   <div class="input-group mb-3">
   <div class="input-group-prepend">
-    <label class="input-group-text" for="inputGroupSelect01">Время</label>
+    <label class="input-group-text text-dark" for="inputGroupSelect01">Время</label>
   </div>
   <select class="custom-select" id="inputGroupSelect01" name="time_cooking">
     <option selected>...</option>
     <option value="1">30 минут</option>
     <option value="2">1 час</option>
     <option value="3">2 часа</option>
-     <option value="3">3 часа</option>
+     <option value="4">3 часа</option>
   </select>
 </div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text text-dark" for="inputGroupSelect01">Категория</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelect01" name="category">
+    <option selected>Без категории</option>
+    <option value="1">Первое блюдо</option>
+    <option value="2">Второе блюдо</option>
+    <option value="3">Закуски</option>
+    <option value="4">Выпечка</option>
+    <option value="5">Десерты</option>
+    <option value="6">Напитки</option>
+     <option value="7">Соусы</option>
+  </select>
+</div>
+
+
 
   <div class="form-group">
     <label for="exampleFormControlFile1">Добавить картинку</label>

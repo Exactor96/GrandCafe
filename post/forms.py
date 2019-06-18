@@ -8,4 +8,5 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('title',
          #'slug',
-         'category','tags','ingredients','cooking','time_cooking',)
+         'category',#'tags',
+         'ingredients','cooking','time_cooking',)

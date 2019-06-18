@@ -93,10 +93,10 @@ def post_detail(request, slug):
 	return render(request, 'post/post_detail.html',context={'post':post})
 
 def add_post(request):
-    print(request)
-    print(dir(request))
+    #print(request)
+    #print(dir(request))
     print(*request.POST)
-    print(request.method)
+    #print(request.method)
     if request.method == "POST":
         form = PostForm(request.POST)
         print(form.is_valid())
@@ -111,7 +111,7 @@ def add_post(request):
             post.cooking = request.POST["cooking"]
             post.time_cooking = request.POST["time_cooking"]
             post.save()
-            return HttpResponseRedirect("/"+link)
+            return HttpResponseRedirect("/post/recept/"+link)
     else:
         form = PostForm()
     return render(request, 'post/add.html', {'form': form})

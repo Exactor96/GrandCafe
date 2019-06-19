@@ -70,25 +70,25 @@ textarea{
 
 {% block content %}
 <body>
-<form method="post" action="{% url 'post_add' %}"> {% csrf_token %}
+<form method="post" action="{% url 'post_add' %}" class="form__add"> {% csrf_token %}
   <div class="col-sm-6" id="form-add">
-  <div class="card border-dark">
-      <div class="card-header bg-dark text-light text-center">Добавление рецепта</div>
-  <div class="card-body bg-warning"  style="width: 38rem;">
+  <div class="card border-dark form__add__card">
+      <div class="card-header bg-dark text-light text-center form__add__header">Добавление рецепта</div>
+  <div class="card-body bg-warning form__add__card__body"  style="width: 38rem;">
 
-    <div class="input-group mb-3">
+    <div class="input-group mb-3  form__add__title">
   <div class="input-group-prepend">
-   <label class="input-group-text text-dark" for="inputGroupSelect01">Название рецепта</label>
+   <label class="input-group-text text-dark form__add__label" for="inputGroupSelect01">Название рецепта</label>
   </div>
-  <input type="text" class="form-control" placeholder="" name="title" aria-label="Example text with button addon" aria-describedby="button-addon1">
+  <input type="text" class="form-control form__add__input" placeholder="" name="title" aria-label="Example text with button addon" aria-describedby="button-addon1">
 </div>
 
 
-  <div class="input-group mb-3">
+  <div class="input-group mb-3 form__add__time">
   <div class="input-group-prepend">
-    <label class="input-group-text text-dark" for="inputGroupSelect01">Время</label>
+    <label class="input-group-text text-dark form__add__label" for="inputGroupSelect01">Время</label>
   </div>
-  <select class="custom-select" id="inputGroupSelect01" name="time_cooking">
+  <select class="custom-select form__add__custom" id="inputGroupSelect01" name="time_cooking">
     <option selected>до 30 минут</option>
     <option value="около часа">около часа</option>
     <option value="1.5 часа">1.5 часа</option>
@@ -97,11 +97,11 @@ textarea{
   </select>
 </div>
 
-<div class="input-group mb-3">
+<div class="input-group mb-3 form__add__category">
   <div class="input-group-prepend">
-    <label class="input-group-text text-dark" for="inputGroupSelect01">Категория</label>
+    <label class="input-group-text text-dark form__add__label" for="inputGroupSelect01">Категория</label>
   </div>
-  <select class="custom-select" id="inputGroupSelect01" name="category">
+  <select class="custom-select form__add__custom" id="inputGroupSelect01" name="category">
     <option selected value="0">Без категории</option>
     <option value="1">Первое блюдо</option>
     <option value="2">Второе блюдо</option>
@@ -114,33 +114,33 @@ textarea{
 </div>
 
 
-<div class="input-group mb-3">
+<div class="input-group mb-3 form__add__tags">
   <div class="input-group-prepend">
-   <label class="input-group-text text-dark" for="inputGroupSelect01">Тэги</label>
+   <label class="input-group-text text-dark form__add__label" for="inputGroupSelect01">Тэги</label>
   </div>
-  <input type="text" class="form-control" placeholder="" name="tags" aria-label="Example text with button addon" aria-describedby="button-addon1">
+  <input type="text" class="form-control form__add__input" placeholder="" name="tags" aria-label="Example text with button addon" aria-describedby="button-addon1">
 </div>
 
 
-  <div class="form-group">
-    <label for="exampleFormControlFile1">Добавить картинку</label>
+  <div class="form-group form__add__image">
+    <label for="exampleFormControlFile1" class="form__add__label">Добавить картинку</label>
     <input type="file" class="form-control-file" id="exampleFormControlFile1">
   </div>
 
 
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Ингредиенты</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" name="ingredients" rows="3"></textarea>
+  <div class="form-group form__add__ingredients">
+    <label for="exampleFormControlTextarea1" class="form__add__label">Ингредиенты</label>
+    <textarea class="form-control form__add__textarea" id="exampleFormControlTextarea1" name="ingredients" rows="3"></textarea>
   </div>
 
 
-<div class="form-group">
-    <label for="exampleFormControlTextarea1">Приготовление</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" name="cooking"  rows="3"></textarea>
+<div class="form-group form__add__cooking">
+    <label for="exampleFormControlTextarea1" class="form__add__label">Приготовление</label>
+    <textarea class="form-control form__add__textarea" id="exampleFormControlTextarea1" name="cooking"  rows="3"></textarea>
   </div>
 
 
-<button type="submit" class="btn btn-outline-primary">Добавить</button>
+<button type="submit" class="btn btn-outline-primary form__add__button">Добавить</button>
 
     </div>
   </div>

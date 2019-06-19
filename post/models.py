@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.contenttypes.fields import GenericRelation
 from hitcount.models import HitCount, HitCountMixin
+from django.contrib.auth.models import User
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=30, db_index= True)
@@ -47,17 +48,16 @@ class Tag(models.Model):
         return '{}'.format(self.title)
 
 
-class Human(models.Model):
-    name = models.CharField(max_length=50, verbose_name="Имя")
-    surname = models.CharField(max_length=50, verbose_name="Фамилия")
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     date_birth = models.DateField(auto_now_add=False, auto_now=False, verbose_name='дата рождения')
     email = models.EmailField(max_length=50, verbose_name='email')
 
-    def __str__(self):
-        return self.name
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
 
-class t_img(models.Model):
-    avatar = models.ImageField(verbose_name="avatar")
-
-    def __str__(self):
-        return self.name
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.profile.save()

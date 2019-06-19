@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post, Tag, Human
+from .models import Post, Tag, Profile
 from django.views.generic.base import View
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView

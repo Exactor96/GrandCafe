@@ -104,12 +104,13 @@ body{
         {% for each in post.ingredients_as_list %}
           <p class="ingredient-check">{{each}}</p>
       {% endfor %}
+      <p>Категория: {{ post.category }}</p>
+       <p>Tags: {{ post.tags }}</p>
     </div>
 <div class="ingredient-picture">
     <img class="ingredient-image" src="http://www.akropolcafe.ru/application/uploads/catalog/64740289e9c2e05eebaa8b743bfe645d.jpg" alt="image">
         </div>
           </div>
-
 <div class="cooking">
 <div class="cooking-headline">
   <h4>Приготовление</h4>

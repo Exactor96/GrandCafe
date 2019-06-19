@@ -89,11 +89,11 @@ textarea{
     <label class="input-group-text text-dark" for="inputGroupSelect01">Время</label>
   </div>
   <select class="custom-select" id="inputGroupSelect01" name="time_cooking">
-    <option selected>...</option>
-    <option value="1">30 минут</option>
-    <option value="2">1 час</option>
-    <option value="3">2 часа</option>
-     <option value="4">3 часа</option>
+    <option selected>до 30 минут</option>
+    <option value="около часа">около часа</option>
+    <option value="1.5 часа">1.5 часа</option>
+    <option value="2 часа">2 часа</option>
+     <option value="3 часа">3 часа</option>
   </select>
 </div>
 
@@ -102,7 +102,7 @@ textarea{
     <label class="input-group-text text-dark" for="inputGroupSelect01">Категория</label>
   </div>
   <select class="custom-select" id="inputGroupSelect01" name="category">
-    <option selected>Без категории</option>
+    <option selected value="0">Без категории</option>
     <option value="1">Первое блюдо</option>
     <option value="2">Второе блюдо</option>
     <option value="3">Закуски</option>
@@ -113,6 +113,13 @@ textarea{
   </select>
 </div>
 
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+   <label class="input-group-text text-dark" for="inputGroupSelect01">Тэги</label>
+  </div>
+  <input type="text" class="form-control" placeholder="" name="tags" aria-label="Example text with button addon" aria-describedby="button-addon1">
+</div>
 
 
   <div class="form-group">

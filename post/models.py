@@ -22,7 +22,7 @@ class Post(models.Model,HitCountMixin):
     ingredients = models.TextField(blank=False)
     cooking = models.TextField(blank=False)
     date_pub = models.DateTimeField(auto_now_add=True)
-    time_cooking = models.TextField(blank=True, max_length=10)
+    time_cooking = models.TextField(blank=True, max_length=30)
     category = models.ForeignKey(Category, on_delete = models.PROTECT,default=0)
     subcategory=models.ForeignKey(SubCategory, on_delete = models.PROTECT,default=0)
     views = models.IntegerField(blank=False,default=0)
@@ -53,6 +53,7 @@ class Profile(models.Model):
     date_birth = models.DateField(auto_now_add=False, auto_now=False, verbose_name='дата рождения')
     email = models.EmailField(max_length=50, verbose_name='email')
 
+"""
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
         if created:
@@ -61,3 +62,4 @@ class Profile(models.Model):
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
+"""
